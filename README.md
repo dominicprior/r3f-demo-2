@@ -13,6 +13,8 @@ npm i (which installed over 3000 files)
 
 npm i three@latest @react-three/fiber@latest (for another 2000 files)
 
+Click "Publish to GitHub"
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
