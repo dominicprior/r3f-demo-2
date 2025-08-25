@@ -4,8 +4,8 @@ import { Mesh } from 'three'
 
 export default function Experience() {
     const sphereRef = useRef<Mesh>(null);
-    useFrame(() => {
-        sphereRef!.current!.rotation.z += 0.01;
+    useFrame((_state, delta) => {
+        sphereRef!.current!.rotation.z += 0.01 * delta * 60;
     })
     return <>
         {/* <mesh scale={[3,2,1]} > */}
