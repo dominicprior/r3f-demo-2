@@ -5,6 +5,7 @@ import { useThree, extend, useFrame, } from "@react-three/fiber"
 import { useRef } from "react"
 import { Mesh, Group } from 'three'
 import { OrbitControls } from "three/addons";
+import Custom from './custom.tsx';
 
 declare module '@react-three/fiber' {
     interface ThreeElements {
@@ -18,23 +19,30 @@ export default function Experience() {
     const { camera, gl } = useThree();
     const groupRef = useRef<Group>(null);
     const sphereRef = useRef<Mesh>(null);
-    useFrame((_state, delta) => {
+    useFrame((_state, _delta) => {
         // sphereRef!.current!.rotation.z += 0.01 * delta * 60;
-        groupRef!.current!.rotation.x += 0.01 * delta * 60;
+        // groupRef!.current!.rotation.x += 0.01 * delta * 60;
     })
     return <>
         <orbitControls args={ [ camera, gl.domElement ] } />
+        <directionalLight />
+        <ambientLight />
+        <Custom />
         <group ref={groupRef}>
-        {/* <mesh scale={[3,2,1]} > */}
-            <mesh ref={sphereRef} scale={2} rotation-z={0.3}>
+
+            <mesh ref={sphereRef} scale={0.5}  position-x={-1}>
                 <sphereGeometry args={[1.2]} />
-                <meshBasicMaterial color="pink" wireframe />
-                {/* <meshNormalMaterial args={[{ wireframe: true}]} /> */}
+                <meshStandardMaterial color="pink" />
             </mesh>
-            <mesh scale={2}>
-                <boxGeometry args={[0.5, 0.5, 3]} />
-                <meshBasicMaterial color="orange" wireframe />
-                {/* <meshNormalMaterial args={[{ wireframe: true}]} /> */}
+
+            <mesh scale={0.5} position-x={1}>
+                <boxGeometry args={[1, 1, 3]} />
+                <meshStandardMaterial color="orange" />
+            </mesh>
+
+            <mesh rotation-x={-1.57}  position-y={-1}>
+                <planeGeometry args={[5, 5]} />
+                <meshStandardMaterial color="yellowgreen" />
             </mesh>
         </group>
     </>
