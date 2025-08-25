@@ -1,20 +1,12 @@
-import { useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import './App.css'
+import Experience from './experience.tsx'
 
 export default function App() {
 
-      return (
-        <>
-            <p>
-                hello
-            </p>
-            <Canvas>
-                <mesh>
-                    <torusKnotGeometry />
-                    <meshNormalMaterial />
-                </mesh>
-            </Canvas>
-        </>
+    return (
+        <Canvas>
+            <Experience />
+        </Canvas>
     )
 }
