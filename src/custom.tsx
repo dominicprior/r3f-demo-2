@@ -1,6 +1,8 @@
+import { useMemo } from "react";
+
 export default function Custom() {
-    const positions = new Float32Array([
-            -1, -1, 0,    1, -1, 0,    1, 1, 0,]);
+    const positions = useMemo(() => new Float32Array([
+            -1, -1, 0,   1, -1, 0,   1, 1, 0,]), [ ]);
     return <mesh>
         <bufferGeometry>
             <bufferAttribute
