@@ -20,6 +20,7 @@ export default function Experience() {
     const groupRef = useRef<Group>(null);
     const sphereRef = useRef<Mesh>(null);
     useFrame((_state, _delta) => {
+        // state.camera.position.z += 0.005
         // sphereRef!.current!.rotation.z += 0.01 * delta * 60;
         // groupRef!.current!.rotation.x += 0.01 * delta * 60;
     })
